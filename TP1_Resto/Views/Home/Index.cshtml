@@ -22,15 +22,6 @@
         }
     </tr>
 </table>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-    </button>
-</div>
 
 <!--Plats-->
 <h4>Plats les moins chers</h4>
@@ -43,7 +34,6 @@
                     <img src="@plats.CheminImage" class="card-img-top">
                     <div class="card-body">
                         <h5 class="card-title">@plats.Nom</h5>
-                        <!--Consigne : Mettre tous les champs; C'est quoi, tous les champs?-->
                         <p class="card-text">@plats.Prix $</p>
                         <p class="card-text">@plats.Categorie</p>
                         <a href="Views/plats/details?id=@plats.Id" class="btn btn-primary">Go somewhere</a>
