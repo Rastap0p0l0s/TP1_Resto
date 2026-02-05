@@ -41,7 +41,7 @@ namespace TP1_Resto.Services
 			return ListePlat;
 		}
 
-		public List<Plat> GetPlatsTop3()
+		public List<Plat> GetPlatsTop3Price()
 		{
 			return ListePlat.OrderBy(p => p.Prix).Take(3).ToList();
 		}
@@ -49,6 +49,11 @@ namespace TP1_Resto.Services
 		public List<Plat> GetPlatsByResto(int RestoId)
 		{
 			return ListePlat.Where(a => a.RestaurantId == RestoId).ToList();
+		}
+
+		public List<Plat> GetPlatsByCategorie(string categorie)
+		{
+			return ListePlat.Where(p => p.Categorie.Equals(categorie)).ToList();
 		}
 
 		public List<String> GetAllCateg()
