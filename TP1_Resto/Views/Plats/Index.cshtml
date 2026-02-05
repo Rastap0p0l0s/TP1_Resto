@@ -10,19 +10,22 @@
 }
 
 <div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Catégories
-    </button>
+    @if(Model.selectedCategory==null){
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Catégories
+        </button>  
+    }else{
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            @Model.selectedCategory
+        </button>
+        <button type="button" class="btn btn-info" onclick="">Retirer le filtre</button>
+    }
     <ul class="dropdown-menu" >
         @foreach(string categ in Model.categories)
         {
             <li><a class="dropdown-item" href="../Views/Plats/@categ">@categ</a></li>
         }
     </ul>
-    @if(nomCateg != ""){
-        <!--Rajouter un event dans le onclick pour changer la sélection de catégorie à vide et mettre nomCateg à ""-->
-        <button type="button" class="btn btn-info" onclick="">Retirer le filtre</button>
-    }
 </div>
 <ul class="list-group">
     @foreach(Plat plat in Model.plats)
