@@ -60,5 +60,10 @@ namespace TP1_Resto.Services
 		{
 			return ListePlat.Select(p => p.Categorie).Distinct().ToList();
 		}
+
+		public List<String> GetAllCategFrom(String categorie)
+		{
+			return ListePlat.Select(p => p.Categorie).Where(p => !p.Equals(categorie)).ToList();
+		}
     }
 }

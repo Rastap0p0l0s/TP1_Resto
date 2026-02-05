@@ -23,7 +23,7 @@ namespace TP1_Resto.ViewModels.Plats
         {
             platsServices = new PlatsServices();
             plats = platsServices.GetPlatsByCategorie(categorie);
-            categories = platsServices.GetAllCateg();
+            categories = platsServices.GetAllCategFrom(categorie);
             selectedCategory = categorie;
         }
     }
