@@ -4,13 +4,8 @@ namespace TP1_Resto.Services
 {
 	public class RestaurantsService
 	{
-		public List<Restaurant> listeResto;
-
-		public RestaurantsService()
-		{
-			listeResto = new List<Restaurant>()
-			{
-				new Restaurant
+		public List<Restaurant> ListeResto=
+			[new Restaurant
 				{
 					Id = 1,
 					Nom = "Le Bistrot du Marché",
@@ -81,13 +76,16 @@ namespace TP1_Resto.Services
 					Cuisine = "Mexicaine",
 					Note = 4.0,
 					Ville = "Aix-en-Provence"
-				}
-			};
+				}];
+
+		public List<Restaurant> GetAllResto()
+		{
+			return ListeResto;
 		}
 
-		public List<Restaurant> getAllResto()
+		public List<Restaurant> GetRestoTop3()
 		{
-			return listeResto;
+			return ListeResto.OrderByDescending(r => r.Note).Take(3).ToList();
 		}
 	}
 }

@@ -4,13 +4,8 @@ namespace TP1_Resto.Services
 {
     public class PlatsServices
     {
-        public List<Plat> listePlat;
-
-        public PlatsServices()
-        {
-			listePlat = new List<Plat>()
-			{
-				new Plat { Id = 1, Nom = "Bœuf Bourguignon", Prix = 18.5, Categorie = "Plat principal", RestaurantId = 1 },
+        public List<Plat> ListePlat= 
+			   [new Plat { Id = 1, Nom = "Bœuf Bourguignon", Prix = 18.5, Categorie = "Plat principal", ChemineImage = "", RestaurantId = 1 },
 				new Plat { Id = 2, Nom = "Soupe à l'oignon", Prix = 7.5, Categorie = "Entrée", RestaurantId = 1 },
 
 				new Plat { Id = 3, Nom = "Lasagnes maison", Prix = 14.0, Categorie = "Plat principal", RestaurantId = 3 },
@@ -39,12 +34,21 @@ namespace TP1_Resto.Services
 
 				new Plat { Id = 19, Nom = "Salade de quinoa", Prix = 9.0, Categorie = "Salade", RestaurantId = 6 },
 				new Plat { Id = 20, Nom = "Fondant au chocolat", Prix = 7.0, Categorie = "Dessert", RestaurantId = 2 }
-			};
-        }
+			];
 
-        public List<Plat> getAllPlats()
+        public List<Plat> GetAllPlats()
         {
-			return listePlat;
+			return ListePlat;
+		}
+
+		public List<Plat> GetPlatsTop3()
+		{
+			return ListePlat.OrderBy(p => p.Prix).Take(3).ToList();
+		}
+
+		public List<Plat> GetPlatsByResto(int RestoId)
+		{
+			return ListePlat.Where(a => a.RestaurantId == RestoId).ToList();
 		}
     }
 }
