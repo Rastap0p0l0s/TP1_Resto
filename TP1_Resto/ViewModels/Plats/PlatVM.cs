@@ -9,12 +9,14 @@ namespace TP1_Resto.ViewModels.Plats
 
         public List<Plat> plats;
         public List<String> categories;
+        public String? selectedCategory;
 
         public PlatVM()
         {
             platsServices = new PlatsServices();
             plats = platsServices.GetAllPlats();
             categories = platsServices.GetAllCateg();
+            selectedCategory = null;
         }
 
         public PlatVM(String categorie)
@@ -22,6 +24,7 @@ namespace TP1_Resto.ViewModels.Plats
             platsServices = new PlatsServices();
             plats = platsServices.GetPlatsByCategorie(categorie);
             categories = platsServices.GetAllCateg();
+            selectedCategory = categorie;
         }
     }
 }
