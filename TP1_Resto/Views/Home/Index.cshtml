@@ -1,8 +1,96 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Acceuil";
+    List<Plat> listePlats = new List<Plat>();
+    List<Restaurant> listeResto = new List<Restaurant>();
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<h4>Meilleurs restaurants</h4>
+<table>
+    <tr>
+        @foreach (Restaurant resto in listeResto)
+        {
+            <td>
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">@resto.Nom</h5>
+                        <p class="card-text">@resto.Cuisine</p>
+                        <p class="card-text">@resto.Note</p>
+                    </div>
+                </div>
+            </td>
+        }
+    </tr>
+</table>
+<div id="carouselExample" class="carousel slide">
+    <div class="carousel-inner">
+        @foreach (Restaurant resto in listeResto)
+        {
+            <div class="carousel-item">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">@resto.Nom</h5>
+                        <p class="card-text">@resto.Cuisine $</p>
+                        <p class="card-text">@resto.Note</p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+<!--Plats-->
+<h4>Plats les moins chers</h4>
+<table>
+    <tr>
+        @foreach (Plat plats in listePlats)
+        {
+            <td>
+                <div class="card" style="width: 18rem;">
+                    <img src="@plats.CheminImage" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">@plats.Nom</h5>
+                        <!--Consigne : Mettre tous les champs; C'est quoi, tous les champs?-->
+                        <p class="card-text">@plats.Prix $</p>
+                        <p class="card-text">@plats.Categorie</p>
+                        <a href="Views/plats/details?id=@plats.Id" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </td>
+        }
+    </tr>
+</table>
+<div id="carouselExample" class="carousel slide">
+    <div class="carousel-inner">
+        @foreach (Plat plats in listePlats)
+        {
+            <div class="carousel-item">
+                <div class="card" style="width: 18rem;">
+                    <img src="@plats.CheminImage" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">@plats.Nom</h5>
+                        <!--Consigne : Mettre tous les champs; C'est quoi, tous les champs?-->
+                        <p class="card-text">@plats.Prix $</p>
+                        <p class="card-text">@plats.Categorie</p>
+                        <a href="Views/plats/details?id=@plats.Id" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
 </div>

@@ -2,4 +2,16 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
+    Plat plat = new Plat();
+    ViewData["Title"] = plat.Nom;
 }
+
+<div class="card">
+    <img src="@plat.CheminImage" class="card-img-top" alt="Image de @plat.Nom">
+    <div class="card-body">
+        <h5 class="card-title">@plat.Nom</h5>
+        <p class="card-text">@plat.Prix</p>
+        <p class="card-text">@plat.Categorie</p>
+        <a href="/Views/Plats/Index" class="btn btn-primary">Retour à la liste</a>
+    </div>
+</div>
