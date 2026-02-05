@@ -1,50 +1,11 @@
-﻿@*
+﻿@using TP1_Resto.ViewModels.Restaurants;
+
+@model RestaurantVM
+@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
     ViewData["Title"] = "Restaurants";
-    List<Plat> plats1 = new List<Plat>();
-    plats1.Add(new Plat
-    {
-        Id = 0,
-        Nom = "Pizza0",
-        Prix = 19.99,
-        Categorie = "Italienne",
-        CheminImage = "../Photos/pexels-n-voitkevich-5792322.jpg"
-    });
-
-    List<Restaurant> allResto = new List<Restaurant>();
-    allResto.Add(new Restaurant
-    {
-        Id = 0,
-        Nom = "Resto0",
-        Adresse = "1, Rue Patate",
-        Telephone = "(450)123-4567",
-        Cuisine = "Italienne",
-        Note = 2.1,
-        Plats = plats1
-    });
-    allResto.Add(new Restaurant
-    {
-        Id = 1,
-        Nom = "Resto1",
-        Adresse = "1, Rue Patate",
-        Telephone = "(450)123-4567",
-        Cuisine = "Italienne",
-        Note = 2.1,
-        Plats = plats1
-    });
-    allResto.Add(new Restaurant
-    {
-        Id = 2,
-        Nom = "Resto0",
-        Adresse = "1, Rue Patate",
-        Telephone = "(450)123-4567",
-        Cuisine = "Italienne",
-        Note = 2.1,
-        Plats = plats1
-    });
-
 }
 @* 
     Temporaire (Probablement à déplacer dans un view model)
@@ -70,7 +31,7 @@
 
 <h1>Restaurants</h1>
 <div class="accordion" id="accordionExample">
-    @foreach(Restaurant resto in allResto)
+    @foreach(Restaurant resto in Model.restaurants)
     {
         <div class="accordion-item">
             <!--aria-controls doit avoir collapse et un chiffre en lettre, sinon ça marche pas, d'où la méthode au-dessus--->

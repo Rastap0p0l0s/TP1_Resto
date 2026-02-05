@@ -87,5 +87,10 @@ namespace TP1_Resto.Services
 		{
 			return ListeResto.OrderByDescending(r => r.Note).Take(3).ToList();
 		}
+
+		public List<Restaurant> GetRestaurantsInAlphabeticalOrder()
+		{
+			return ListeResto.OrderBy(r => r.Nom).ToList();
+		}
 	}
 }

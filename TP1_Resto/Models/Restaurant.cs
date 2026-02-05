@@ -15,20 +15,7 @@ namespace TP1_Resto.Models
         public string Ville {  get; set; }
 
         [NotMapped]
-        public int NbrPlats 
-        {
-			get
-			{
-				try
-				{
-					return Plats.Count();
-				}
-				catch
-				{
-					return 0;
-				}
-			}
-		}
+        public int NbrPlats { get; set; }
 
 		public List<Plat> Plats { get; set; }
 	}

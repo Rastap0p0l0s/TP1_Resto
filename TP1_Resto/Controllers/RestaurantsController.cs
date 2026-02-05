@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using TP1_Resto.ViewModels.Restaurants;
 
 namespace TP1_Resto.Controllers
 {
@@ -6,7 +7,7 @@ namespace TP1_Resto.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            return View(new RestaurantVM());
         }
     }
 }
