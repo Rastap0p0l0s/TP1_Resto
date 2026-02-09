@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using TP1_Resto.ViewModels.Plats;
 
 namespace TP1_Resto.Controllers
 {
@@ -9,14 +10,14 @@ namespace TP1_Resto.Controllers
             return View();
         }
 
-        [Route("/Plats/details/{id}")]
+        [Route("Plats/details/{id}")]
         public IActionResult Details(int id)
         {
-            return View(id);
+            return View("/Plats", id);
         }
 
         //Vérifier que ça marche
-		public IActionResult DetailsQuery(int id)
+        public IActionResult DetailsQuery(int id)
 		{
 			return View(id);
 		}

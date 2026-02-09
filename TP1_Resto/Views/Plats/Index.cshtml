@@ -1,4 +1,4 @@
-﻿@using TP1_Resto.ViewModels.Plats;
+﻿@using TP1_Resto.ViewModels.Plats
 
 @model PlatVM
 @*
@@ -6,7 +6,6 @@
 *@
 @{
     ViewData["Title"] = "Plats";
-    string nomCateg = "";
 }
 
 <div class="dropdown">
@@ -18,12 +17,12 @@
         <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
             @Model.selectedCategory
         </button>
-        <button type="button" class="btn btn-info" onclick="">Retirer le filtre</button>
+        <a class="btn btn-info" asp-controller="Plats" asp-action="Index">Retirer le filtre</a>
     }
     <ul class="dropdown-menu" >
         @foreach(string categ in Model.categories)
         {
-            <li><a class="dropdown-item" href="../Views/Plats/@categ">@categ</a></li>
+            <li><a class="dropdown-item" asp-controller="Plats" asp-action="@categ">@categ</a></li>
         }
     </ul>
 </div>
@@ -32,7 +31,7 @@
     {
         <li class="list-group-item row d-flex">
             <p class="col-md-11">@plat.Nom</p>
-            <button type="button" href="../Views/Plats/Details/@plat.Id" class="col-md-1 btn btn-outline-dark">Détails</button>
+            <a href="Plat/details/@plat.Id" class="col-md-1 btn btn-outline-dark">Détails</a>
         </li>  
     }
 </ul>

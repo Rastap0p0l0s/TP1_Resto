@@ -1,17 +1,16 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@using TP1_Resto.ViewModels.Plats
+
+@model PlatDetailsVM
 @{
-    Plat plat = new Plat();
-    ViewData["Title"] = plat.Nom;
+    ViewData["Title"] = Model.plat.Nom;
 }
 
 <div class="card">
-    <img src="@plat.CheminImage" class="card-img-top" alt="Image de @plat.Nom">
+    <img src="@Model.plat.CheminImage" class="card-img-top" alt="Image de @Model.plat.Nom">
     <div class="card-body">
-        <h5 class="card-title">@plat.Nom</h5>
-        <p class="card-text">@plat.Prix</p>
-        <p class="card-text">@plat.Categorie</p>
-        <a href="/Views/Plats/Index" class="btn btn-primary">Retour à la liste</a>
+        <h5 class="card-title">@Model.plat.Nom</h5>
+        <p class="card-text">@Model.plat.Prix</p>
+        <p class="card-text">@Model.plat.Categorie</p>
+        <a href="Plats/Index" class="btn btn-primary">Retour à la liste</a>
     </div>
 </div>

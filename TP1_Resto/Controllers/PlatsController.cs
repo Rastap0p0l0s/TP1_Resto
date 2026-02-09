@@ -10,10 +10,16 @@ namespace TP1_Resto.Controllers
             return View(new PlatVM());
         }
 
-        [Route("Views/Plats/{categories?}")]
+        [Route("Plats/{categories}")]
         public IActionResult Categories(string categories)
         {
             return View(nameof(this.Index), new PlatVM(categories));
         }
-    }
+
+		//[Route("Plats/details/{id}")]
+		//public IActionResult Details(int id)
+		//{
+		//	return View(id);
+		//}
+	}
 }

@@ -1,4 +1,4 @@
-﻿@using TP1_Resto.ViewModels.Accueil;
+﻿@using TP1_Resto.ViewModels.Accueil
 
 @model AccueilVM
 @{
@@ -27,16 +27,16 @@
 <h4>Plats les moins chers</h4>
 <table>
     <tr>
-        @foreach (Plat plats in Model.MeilleurPlats)
+        @foreach (Plat plat in Model.MeilleurPlats)
         {
             <td>
                 <div class="card" style="width: 18rem;">
-                    <img src="@plats.CheminImage" class="card-img-top">
+                    <img src="@plat.CheminImage" class="card-img-top">
                     <div class="card-body">
-                        <h5 class="card-title">@plats.Nom</h5>
-                        <p class="card-text">@plats.Prix $</p>
-                        <p class="card-text">@plats.Categorie</p>
-                        <a href="Views/plats/details?id=@plats.Id" class="btn btn-primary">Go somewhere</a>
+                        <h5 class="card-title">@plat.Nom</h5>
+                        <p class="card-text">@plat.Prix $</p>
+                        <p class="card-text">@plat.Categorie</p>
+                        <a href="Plats/details/@plat.Id" class="btn btn-primary">Détails</a>
                     </div>
                 </div>
             </td>

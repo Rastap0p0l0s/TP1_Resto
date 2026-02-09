@@ -1,47 +1,23 @@
 ﻿@using TP1_Resto.ViewModels.Restaurants;
 
 @model RestaurantVM
-@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
 @{
     ViewData["Title"] = "Restaurants";
 }
-@* 
-    Temporaire (Probablement à déplacer dans un view model)
-    public string intToNum(int num)
-    {
-        string words = "";
-        if (words != "")
-            words += "and ";
-
-        var unitsMap = new[] { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen" };
-        var tensMap = new[] { "zero", "ten", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety" };
-
-        if (num < 20)
-            words += unitsMap[num];
-        else
-        {
-            words += tensMap[num / 10];
-            if ((num % 10) > 0)
-                words += "-" + unitsMap[num % 10];
-        }
-        return words;
-    } *@
 
 <h1>Restaurants</h1>
-<div class="accordion" id="accordionExample">
+<div class="accordion" id="accordeon">
     @foreach(Restaurant resto in Model.restaurants)
     {
         <div class="accordion-item">
             <!--aria-controls doit avoir collapse et un chiffre en lettre, sinon ça marche pas, d'où la méthode au-dessus--->
             <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <button class="accordion-button @Model.IsFirstElementColl(resto)" type="button" data-bs-toggle="collapse" data-bs-target="#@Model.CollapseStr(resto)" aria-expanded="@Model.IsFirstElement(resto)" aria-controls="@Model.CollapseStr(resto)">
                     @resto.Nom
                 </button>
             </h2>
             <!--id doit être la même chose que le aria-constrols associé (je crois)-->
-            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+            <div id="@Model.CollapseStr(resto)" class="accordion-collapse collapse @Model.IsFirstElementShow(resto)" data-bs-parent="#accordeon">
                 <div class="accordion-body">
                     <table>
                         <tr>
@@ -84,16 +60,4 @@
             </div>
         </div>
     }
-    <div class="accordion-item">
-        <h2 class="accordion-header">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                Accordion Item #3
-            </button>
-        </h2>
-        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-            <div class="accordion-body">
-                <strong>This is the third item’s accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It’s also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-            </div>
-        </div>
-    </div>
 </div>
